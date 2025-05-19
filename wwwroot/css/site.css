@@ -1,0 +1,41 @@
+body {
+    background-color: #f8f9fa; /* Světle šedá pozadí celé stránky */
+    display: flex;
+    justify-content: center; /* Horizontální centrování */
+    align-items: center; /* Vertikální centrování */
+    min-height: 100vh; /* Minimální výška na celou obrazovku */
+    margin: 0; /* Odstranění výchozích okrajů body */
+}
+
+.bmi-container {
+    background-color: #fff; /* Bílý podklad pro obsah */
+    padding: 30px;
+    border-radius: 10px; /* Zaoblené rohy */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Jemný stín */
+    width: 100%;
+    max-width: 500px; /* Maximální šířka kontejneru */
+    /* Již nepotřebujeme margin auto, flexbox na body se postará o centrování */
+}
+
+/* Ostatní styly zůstávají beze změny */
+h1 {
+    text-align: center; /* Centrování nadpisu */
+    color: #007bff; /* Modrá barva nadpisu */
+    margin-bottom: 20px;
+}
+
+.form-label {
+    font-weight: bold; /* Tučné popisky formuláře */
+}
+
+.btn-primary {
+    width: 100%; /* Tlačítko na celou šířku */
+}
+
+.mt-4 {
+    text-align: center; /* Centrování výsledku BMI */
+}
+
+.badge-info {
+    font-size: 1.2em; /* Větší písmo pro výsledek BMI */
+}

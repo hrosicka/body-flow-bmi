@@ -1,0 +1,46 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Kalkulačka BMI";
+}
+
+<div class="bmi-container">
+    <h1 class="mb-4">Kalkulačka BMI</h1>
+
+    <form method="post">
+        <div class="mb-3">
+            <label for="hmotnost" class="form-label">Hmotnost (kg):</label>
+            <input type="number" class="form-control" id="hmotnost" asp-for="BmiData.Hmotnost" required>
+        </div>
+        <div class="mb-3">
+            <label for="vyska" class="form-label">Výška (cm):</label>
+            <input type="number" class="form-control" id="vyska" asp-for="BmiData.Vyska" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Spočítat BMI</button>
+    </form>
+
+    @if (Model.ZobrazeniVysledku)
+    {
+        <div class="mt-4">
+            <h3>Výsledek BMI: <span class="badge bg-info">@Model.BmiData.VysledekBmi.ToString("N2")</span></h3>
+            @{
+                if (Model.BmiData.VysledekBmi < 18.5)
+                {
+                    <p class="alert alert-info mt-2">Podváha</p>
+                }
+                else if (Model.BmiData.VysledekBmi < 25)
+                {
+                    <p class="alert alert-success mt-2">Normální váha</p>
+                }
+                else if (Model.BmiData.VysledekBmi < 30)
+                {
+                    <p class="alert alert-warning mt-2">Nadváha</p>
+                }
+                else
+                {
+                    <p class="alert alert-danger mt-2">Obezita</p>
+                }
+            }
+        </div>
+    }
+</div>
