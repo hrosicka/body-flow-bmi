@@ -127,8 +127,18 @@ h1 {
     transition: background-color var(--transition-duration) ease-in-out;
 }
 
+/* Tmavý režim pro tlačítko */
+[data-theme="dark"] .btn-primary {
+    color: #212529; /* Tmavý text pro kontrast */
+}
+
 .btn-primary:hover {
-    background-color: #0056b3; /* Tmavší odstín primární */
+    background-color: #0056b3; /* Původní hover pro světlý režim */
+}
+
+/* Hover pro tlačítko v tmavém režimu */
+[data-theme="dark"] .btn-primary:hover {
+    background-color: #ffe082; /* Světlejší žlutá (odvozená od link color) */
 }
 
 .mt-4 {
@@ -247,4 +257,36 @@ input:checked + .slider:before {
 
 .slider.round:before {
     border-radius: 50%;
+}
+
+.footer {
+    padding: 1.5rem 0;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-color-secondary);
+    background-color: var(--background-color); /* Aby se měnila barva pozadí */
+    border-top: 1px solid var(--border-color); /* Aby ladil s designem */
+    transition: background-color var(--transition-duration) ease-in-out, color var(--transition-duration) ease-in-out, border-color var(--transition-duration) ease-in-out;
+    width: 100%; /* Zajistí, že zápatí bude přes celou šířku */
+    box-sizing: border-box; /* Zahrne padding a border do šířky */
+    margin-top: auto; /* Pokud chceš, aby se tlačilo na spodek při krátkém obsahu */
+}
+
+.footer a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color var(--transition-duration) ease-in-out;
+}
+
+.footer a:hover {
+    color: var(--link-hover-color);
+}
+
+.copyright {
+    color: var(--text-color-primary); /* Nebo jiná barva, kterou chceš */
+    font-size: 0.9em; /* Volitelná velikost písma */
+}
+
+[data-theme="dark"] .copyright {
+    color: var(--text-color-primary); /* Zajistí správnou barvu i v tmavém režimu */
 }
