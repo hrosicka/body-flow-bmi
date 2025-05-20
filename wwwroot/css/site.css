@@ -1,41 +1,137 @@
+:root {
+    --primary-color: #007bff; /* Moderní modrá */
+    --background-color: #f8f9fa; /* Světle šedá pozadí celé stránky */
+    --text-color-primary: #212529; /* Tmavý text */
+    --border-color: #dee2e6; /* Světlé okraje */
+    --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05); /* Jemný stín */
+    --border-radius: 0.5rem; /* Zaoblení rohů */
+    --transition-duration: 0.2s;
+    --font-family-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Tmavý režim */
+[data-theme="dark"] {
+    --primary-color: #6610f2; /* Fialová */
+    --background-color: #212529; /* Tmavé pozadí */
+    --text-color-primary: #f8f9fa; /* Světlý text */
+    --border-color: #495057; /* Tmavší okraje */
+    --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); /* Výraznější stín */
+}
+
 body {
-    background-color: #f8f9fa; /* Světle šedá pozadí celé stránky */
+    background-color: var(--background-color);
+    color: var(--text-color-primary);
+    font-family: var(--font-family-primary);
     display: flex;
-    justify-content: center; /* Horizontální centrování */
-    align-items: center; /* Vertikální centrování */
-    min-height: 100vh; /* Minimální výška na celou obrazovku */
-    margin: 0; /* Odstranění výchozích okrajů body */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    transition: background-color var(--transition-duration) ease-in-out, color var(--transition-duration) ease-in-out;
 }
 
 .bmi-container {
-    background-color: #fff; /* Bílý podklad pro obsah */
+    background-color: #fff; /* Pro světlý režim */
+    border: 1px solid var(--border-color);
     padding: 30px;
-    border-radius: 10px; /* Zaoblené rohy */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Jemný stín */
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
     width: 100%;
-    max-width: 500px; /* Maximální šířka kontejneru */
-    /* Již nepotřebujeme margin auto, flexbox na body se postará o centrování */
+    max-width: 500px;
+    transition: background-color var(--transition-duration) ease-in-out, border-color var(--transition-duration) ease-in-out, box-shadow var(--transition-duration) ease-in-out;
 }
 
-/* Ostatní styly zůstávají beze změny */
+[data-theme="dark"] .bmi-container {
+    background-color: #343a40; /* Tmavší pozadí pro kontejner v tmavém režimu */
+}
+
 h1 {
-    text-align: center; /* Centrování nadpisu */
-    color: #007bff; /* Modrá barva nadpisu */
+    text-align: center;
+    color: var(--primary-color);
     margin-bottom: 20px;
 }
 
 .form-label {
-    font-weight: bold; /* Tučné popisky formuláře */
+    display: block;
+    font-weight: bold;
+    color: var(--text-color-primary);
+    margin-bottom: 0.5rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-sizing: border-box;
+    font-size: 1rem;
+    background-color: var(--background-color);
+    color: var(--text-color-primary);
+    transition: border-color var(--transition-duration) ease-in-out, background-color var(--transition-duration) ease-in-out, color var(--transition-duration) ease-in-out;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Stále specifická modrá */
 }
 
 .btn-primary {
-    width: 100%; /* Tlačítko na celou šířku */
+    width: 100%;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color var(--transition-duration) ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Tmavší odstín primární */
 }
 
 .mt-4 {
-    text-align: center; /* Centrování výsledku BMI */
+    text-align: center;
+    margin-top: 1.5rem;
 }
 
 .badge-info {
-    font-size: 1.2em; /* Větší písmo pro výsledek BMI */
+    font-size: 1.2em;
+    background-color: #17a2b8;
+    color: #fff;
+    padding: 0.4em 0.8em;
+    border-radius: 0.25rem;
+}
+
+.alert {
+    padding: 0.8rem 1.2rem;
+    margin-top: 0.5rem;
+    border-radius: var(--border-radius);
+}
+
+.alert-info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    color: #85640a;
+    border: 1px solid #ffeeba;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
 }
