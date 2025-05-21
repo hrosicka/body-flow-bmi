@@ -1,5 +1,10 @@
 # Body Flow BMI 🏋️‍♂️💧✨
 
+![.NET](https://img.shields.io/badge/.NET-7.0-blueviolet)
+![Platform](https://img.shields.io/badge/platform-Web-blue)
+![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)
+![License: MIT](https://img.shields.io/badge/license-MIT-yellow)
+
 Welcome to _Body Flow BMI_ – the app that tells you whether that next piece of cake is really worth it! 🎂🚫
 
 ## About the project
